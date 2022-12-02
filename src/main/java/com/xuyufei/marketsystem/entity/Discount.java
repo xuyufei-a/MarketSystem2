@@ -1,4 +1,4 @@
-package com.xuyufei.marketsystem;
+package com.xuyufei.marketsystem.entity;
 
 @FunctionalInterface
 public interface Discount {

@@ -1,19 +1,19 @@
-package com.xuyufei.marketsystem;
+package com.xuyufei.marketsystem.entity;
 
 public class SuperUser extends User implements Login {
     private static SuperUser superUser;
 
     private SuperUser(String username, String password) {
-        super(username, password);
+        super(username, password, Type.SU);
     }
 
-    public SuperUser getSuperUser() {
+    public static SuperUser getSuperUser() {
         if(superUser == null)   superUser = new SuperUser("super", "123456");
         return superUser;
     }
 
     @Override
-    public void setUsername(String username) {
+    public void setPassword(String password) {
         throw new UnsupportedOperationException();
     }
 

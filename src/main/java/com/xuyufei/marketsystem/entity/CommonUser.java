@@ -1,4 +1,4 @@
-package com.xuyufei.marketsystem;
+package com.xuyufei.marketsystem.entity;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,7 +9,7 @@ public class CommonUser extends User implements Login {
     Collection<Integer> orders;
 
     public CommonUser(String username, String password) {
-        super(username, password);
+        super(username, password, Type.CO);
 
         list = new ArrayList<>();
         orders = new ArrayList<>();

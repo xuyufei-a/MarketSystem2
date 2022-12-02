@@ -1,4 +1,4 @@
-package com.xuyufei.marketsystem;
+package com.xuyufei.marketsystem.entity;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -7,7 +7,7 @@ public class MerchantUser extends User implements Login {
     private Collection<Integer> commodities;
 
     public MerchantUser(String username, String password) {
-        super(username, password);
+        super(username, password, Type.ME);
         commodities = new ArrayList<>();
     }
 

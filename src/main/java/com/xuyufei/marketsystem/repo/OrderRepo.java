@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class OrderRepo extends Repo implements Closeable {
     private static Connection connection;
 
-    OrderRepo() {
+    public OrderRepo() {
         try {
             connection = DriverManager.getConnection(URL);
         } catch (SQLException e) {

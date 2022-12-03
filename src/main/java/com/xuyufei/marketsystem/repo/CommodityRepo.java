@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class CommodityRepo extends Repo implements Closeable {
     private static Connection connection;
 
-    CommodityRepo() {
+    public CommodityRepo() {
         try {
             connection = DriverManager.getConnection(URL);
         } catch (SQLException e) {

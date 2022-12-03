@@ -15,7 +15,7 @@ import java.sql.Statement;
 public class UserRepo extends Repo implements Closeable {
 
     private static Connection connection;
-    UserRepo() {
+    private UserRepo() {
          try {
              connection = DriverManager.getConnection(URL);
          } catch (SQLException e) {

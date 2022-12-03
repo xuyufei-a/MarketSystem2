@@ -12,11 +12,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class UserRepo implements Closeable {
+public class UserRepo extends Repo implements Closeable {
 
     private static Connection connection;
-    private static final String URL = "jdbc:sqlite:D:/Documents/java_project/MarketSystem/dbs/repo.db";
-
     UserRepo() {
          try {
              connection = DriverManager.getConnection(URL);
@@ -54,9 +52,8 @@ public class UserRepo implements Closeable {
         final String sql =  "select * from users where username=" + username;
         try(Statement statement = connection.createStatement();) {
             var resultSet = statement.executeQuery(sql);
-            if(resultSet == null)   return null;
+            if(resultSet.next() == false)   return null;
 
-            resultSet.next();
             var name = resultSet.getString("username");
             var password = resultSet.getString("password");
             var type =resultSet.getInt("type");
@@ -75,9 +72,8 @@ public class UserRepo implements Closeable {
         final String sql = "select * from users where username=" + username;
         try(Statement statement = connection.createStatement();) {
             var resultSet = statement.executeQuery(sql);
-            if(resultSet == null)   return -1;
+            if(resultSet.next() == false)   return -1;
 
-            resultSet.next();
             var id = resultSet.getInt("id");
 
             return id;
@@ -94,9 +90,8 @@ public class UserRepo implements Closeable {
         final String sql = "select * from users where username=" + username;
         try(Statement statement = connection.createStatement();) {
             var resultSet = statement.executeQuery(sql);
-            if(resultSet == null)   return false;
+            if(resultSet.next() == false)   return false;
 
-            resultSet.next();
             var pass = resultSet.getString("password");
 
             return pass.equals(password);

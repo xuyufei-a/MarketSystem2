@@ -6,6 +6,7 @@ public class Commodity {
     private final int id;
     private String name;
     private Image image;
+    private String imagePath;
     private String text;
     private int price;
     private int owner;
@@ -22,8 +23,34 @@ public class Commodity {
         this.owner = owner;
     }
 
+    public Commodity(int id, String name, String imagePath, String text, int price, int owner) {
+        this.id = id;
+        this.name = name;
+        this.image = new Image(imagePath);
+        this.imagePath = imagePath;
+        this.text = text;
+        this.price = price;
+        this.owner = owner;
+    }
+
     public Commodity(int id, String name, int price, int owner) {
-        this(id, name, null, null, price, owner);
+        this(id, name, (Image) null, null, price, owner);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
+
+    public boolean isStatus() {
+        return status;
     }
 
     private void setStatus(boolean status) {

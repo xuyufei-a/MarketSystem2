@@ -31,6 +31,19 @@ public class CommodityRepo extends Repo implements Closeable {
         }
     }
 
+    public boolean insertEntity(Commodity com) {
+        try(Statement statement = connection.createStatement();) {
+            String sql = "insert into commodity(name, imagePath, text, price, owner)" +
+                    " values(" + com.getName() + "," + com.getImagePath() + "," +
+                    com.getText() + "," + com.getPrice() + "," + com.getOwner() + ")";
+            int rowAffected = statement.executeUpdate(sql);
+            if(rowAffected > 0) return true;
+            return false;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public Iterable<Integer> getIDsByName(String name) {
         try(Statement statement = connection.createStatement();) {
             String sql = "select * from commodity where name=" + name;

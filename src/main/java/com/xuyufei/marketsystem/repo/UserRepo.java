@@ -49,7 +49,7 @@ public class UserRepo extends Repo implements Closeable {
     }
 
     public User getUserEntityByUsername(String username) {
-        final String sql =  "select * from users where username=" + username;
+        final String sql =  "select * from users where username='" + username + "'";
         try(Statement statement = connection.createStatement();) {
             var resultSet = statement.executeQuery(sql);
             if(resultSet.next() == false)   return null;
@@ -87,11 +87,12 @@ public class UserRepo extends Repo implements Closeable {
     }
 
     public boolean checkPassword(String username, String password) {
-        final String sql = "select * from users where username=" + username;
-        if(connection == null) System.out.println("The connection is wrong!");
-         try(Statement statement = connection.createStatement();) {
+        final String sql = "select * from users where username='" + username + "'";
+//        final String sql = "select * from users";
+        if (connection == null) System.out.println("The connection is wrong!");
+        try (Statement statement = connection.createStatement();) {
             var resultSet = statement.executeQuery(sql);
-            if(resultSet.next() == false)   return false;
+            if (resultSet.next() == false) return false;
 
             var pass = resultSet.getString("password");
 

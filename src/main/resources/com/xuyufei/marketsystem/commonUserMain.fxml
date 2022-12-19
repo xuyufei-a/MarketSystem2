@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<SplitPane dividerPositions="0.22394837476099425" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.xuyufei.marketsystem.controller.CommonUserMainController">
+    <items>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+            <children>
+                <Button fx:id="listBtn" layoutX="6.0" layoutY="59.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="119.0" text="购物车" />
+                <Button fx:id="ordersBtn" layoutX="6.0" layoutY="101.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="119.0" text="订单" />
+                <Button fx:id="meBtn" layoutX="6.0" layoutY="144.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="119.0" text="个人中心" />
+                <Label fx:id="nameLabel" layoutX="6.0" layoutY="14.0" prefHeight="29.0" prefWidth="119.0" text="name" textAlignment="CENTER">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Button fx:id="exitBtn" onAction="#exit" layoutX="6.0" layoutY="345.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="119.0" text="退出" />
+            </children></AnchorPane>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+            <children>
+                <Label layoutX="157.0" layoutY="136.0" prefHeight="90.0" prefWidth="176.0" text="Welcome！" textAlignment="CENTER">
+                    <font>
+                        <Font size="28.0" />
+                    </font>
+                </Label>
+            </children></AnchorPane>
+    </items>
+</SplitPane>

@@ -15,7 +15,7 @@ import java.sql.Statement;
 public class UserRepo extends Repo implements Closeable {
 
     private static Connection connection;
-    private UserRepo() {
+    public UserRepo() {
          try {
              connection = DriverManager.getConnection(URL);
          } catch (SQLException e) {
@@ -88,7 +88,8 @@ public class UserRepo extends Repo implements Closeable {
 
     public boolean checkPassword(String username, String password) {
         final String sql = "select * from users where username=" + username;
-        try(Statement statement = connection.createStatement();) {
+        if(connection == null) System.out.println("The connection is wrong!");
+         try(Statement statement = connection.createStatement();) {
             var resultSet = statement.executeQuery(sql);
             if(resultSet.next() == false)   return false;
 

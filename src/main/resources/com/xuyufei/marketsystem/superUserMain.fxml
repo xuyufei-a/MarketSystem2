@@ -12,9 +12,9 @@
     <items>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" >
             <children>
-                <Button fx:id="banBtn" layoutX="6.0" layoutY="59.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="119.0" text="封禁/解封" />
-                <Button fx:id="takeDownBtn" layoutX="6.0" layoutY="101.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="119.0" text="强制下架" />
-                <Button fx:id="discoutBtn" layoutX="6.0" layoutY="144.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="119.0" text="全平台折扣" />
+                <Button fx:id="banBtn" onAction="#banMode" layoutX="6.0" layoutY="59.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="119.0" text="封禁/解封" />
+                <Button fx:id="takeDownBtn" onAction="#takeDownMode" layoutX="6.0" layoutY="101.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="119.0" text="强制下架" />
+                <Button fx:id="discountBtn" onAction="#discountMode" layoutX="6.0" layoutY="144.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="119.0" text="全平台折扣" />
                 <Label fx:id="nameLabel" layoutX="6.0" layoutY="14.0" prefHeight="29.0" prefWidth="119.0" textAlignment="CENTER" text="name">
                     <font>
                         <Font size="20.0" />

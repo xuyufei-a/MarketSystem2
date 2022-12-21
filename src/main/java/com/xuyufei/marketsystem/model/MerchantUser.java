@@ -1,4 +1,4 @@
-package com.xuyufei.marketsystem.entity;
+package com.xuyufei.marketsystem.model;
 
 import java.util.ArrayList;
 import java.util.Collection;

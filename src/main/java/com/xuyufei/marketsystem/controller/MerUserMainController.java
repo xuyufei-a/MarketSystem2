@@ -1,7 +1,7 @@
 package com.xuyufei.marketsystem.controller;
 
 import com.xuyufei.marketsystem.Main;
-import com.xuyufei.marketsystem.entity.User;
+import com.xuyufei.marketsystem.model.User;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
 

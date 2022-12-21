@@ -1,6 +1,4 @@
-package com.xuyufei.marketsystem.entity;
-
-import java.util.ArrayList;
+package com.xuyufei.marketsystem.model;
 
 public class Order {
     private int orderID;

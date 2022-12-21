@@ -1,6 +1,6 @@
 package com.xuyufei.marketsystem.repo;
 
-import com.xuyufei.marketsystem.entity.Commodity;
+import com.xuyufei.marketsystem.model.Commodity;
 
 import java.io.Closeable;
 import java.io.IOException;

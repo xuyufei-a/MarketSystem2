@@ -1,9 +1,9 @@
 package com.xuyufei.marketsystem.repo;
 
-import com.xuyufei.marketsystem.entity.CommonUser;
-import com.xuyufei.marketsystem.entity.MerchantUser;
-import com.xuyufei.marketsystem.entity.SuperUser;
-import com.xuyufei.marketsystem.entity.User;
+import com.xuyufei.marketsystem.model.CommonUser;
+import com.xuyufei.marketsystem.model.MerchantUser;
+import com.xuyufei.marketsystem.model.SuperUser;
+import com.xuyufei.marketsystem.model.User;
 
 import java.io.Closeable;
 import java.io.IOException;
@@ -11,6 +11,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserRepo extends Repo implements Closeable {
 
@@ -97,6 +99,22 @@ public class UserRepo extends Repo implements Closeable {
             var pass = resultSet.getString("password");
 
             return pass.equals(password);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public List<User> getAllUsers() {
+        final String sql = "select * from users";
+        try(Statement statement = connection.createStatement();) {
+            var resultSet = statement.executeQuery(sql);
+            List<User> ret = new ArrayList<>();
+
+            while(resultSet.next()) {
+                ret.add(new User(resultSet.getString("username"), resultSet.getString("password"),
+                        resultSet.getInt("type"), resultSet.getInt("status")));
+            }
+            return ret;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

@@ -1,4 +1,4 @@
-package com.xuyufei.marketsystem.entity;
+package com.xuyufei.marketsystem.model;
 
 import javafx.scene.image.Image;
 

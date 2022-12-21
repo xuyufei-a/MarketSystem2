@@ -1,4 +1,4 @@
-package com.xuyufei.marketsystem.entity;
+package com.xuyufei.marketsystem.model;
 
 public class SuperUser extends User implements Login {
     private static SuperUser superUser;

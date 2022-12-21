@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<SplitPane dividerPositions="0.22394837476099425" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.xuyufei.marketsystem.controller.SuperUserMainBanController">
+    <items>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+            <children>
+                <Button fx:id="banBtn" layoutX="6.0" layoutY="59.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="119.0" text="封禁/解封" />
+                <Button fx:id="takeDownBtn" layoutX="6.0" layoutY="101.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="119.0" text="强制下架" />
+                <Button fx:id="discoutBtn" layoutX="6.0" layoutY="144.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="119.0" text="全平台折扣" />
+                <Label fx:id="nameLabel" layoutX="6.0" layoutY="14.0" prefHeight="29.0" prefWidth="119.0" text="name" textAlignment="CENTER">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Button fx:id="exitBtn" layoutX="6.0" layoutY="345.0" mnemonicParsing="false" onAction="#exit" prefHeight="29.0" prefWidth="119.0" text="退出" />
+            </children></AnchorPane>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+         <children>
+            <TableView fx:id="tableView" layoutX="6.0" layoutY="58.0" prefHeight="325.0" prefWidth="444.0">
+              <columns>
+                <TableColumn fx:id="usernameText" prefWidth="118.85717678070068" text="用户名" />
+                <TableColumn fx:id="passwordText" prefWidth="87.42859649658203" text="密码" />
+                  <TableColumn fx:id="status" prefWidth="79.42857360839844" text="封禁状态" />
+              </columns>
+            </TableView>
+            <Button id="banBtn" layoutX="22.0" layoutY="23.0" mnemonicParsing="false" text="封禁" />
+            <Button id="unbanBtn" layoutX="77.0" layoutY="23.0" mnemonicParsing="false" text="解封" />
+         </children></AnchorPane>
+    </items>
+</SplitPane>

@@ -1,10 +1,7 @@
 package com.xuyufei.marketsystem;
 
-import com.xuyufei.marketsystem.controller.CommonUserMainController;
-import com.xuyufei.marketsystem.controller.LoginWindowController;
-import com.xuyufei.marketsystem.controller.MerUserMainController;
-import com.xuyufei.marketsystem.controller.SuperUserMainController;
-import com.xuyufei.marketsystem.entity.User;
+import com.xuyufei.marketsystem.controller.*;
+import com.xuyufei.marketsystem.model.User;
 import com.xuyufei.marketsystem.repo.UserRepo;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -79,6 +76,22 @@ public class Main extends Application {
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.setTitle("Market System--super user");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void openSuperBanWindow() {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    Main.class.getResource("superUserMain-ban.fxml"));
+            SplitPane root = (SplitPane) loader.load();
+            SuperUserMainBanController controller = loader.getController();
+            controller.init(primaryStage, this, user);
+
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.setTitle("Market System--super user--ban mode");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

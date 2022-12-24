@@ -49,13 +49,11 @@ public class Main extends Application {
         }
     }
 
-    public boolean login(String username, String password) {
+    public int login(String username, String password) {
         try(UserRepo repo = new UserRepo();) {
-            if(repo.checkPassword(username, password)) {
-                user = repo.getUserEntityByUsername(username);
-                return true;
-            }
-            return false;
+            int flag = repo.checkPassword(username, password);
+            user = repo.getUserEntityByUsername(username);
+            return flag;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

@@ -17,6 +17,9 @@ public class LoginWindowController {
     private Main main;
     private Stage stage;
 
+    final String wrongMessage1 = "用户不存在或密码不正确";
+    final String wrongMessage2 = "该用户已被封禁";
+
     public void setMain(Main main, Stage stage) {
         this.main = main;
         this.stage = stage;
@@ -30,8 +33,11 @@ public class LoginWindowController {
         System.out.println(username);
         System.out.println(password);
 
-        if(!main.login(username, password)) {
-            wrongInputPrompt.setVisible(true);
+        int flag = main.login(username, password);
+        if(flag == 1) {
+            wrongInputPrompt.setText(wrongMessage1);
+        } else if(flag == 2) {
+            wrongInputPrompt.setText(wrongMessage2);
         } else {
             System.out.println("success!");
             main.openMainWindow();

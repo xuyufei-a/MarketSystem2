@@ -1,5 +1,8 @@
 package com.xuyufei.marketsystem.model;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+
 public class User {
     public enum Type {
         SU, CO, ME
@@ -7,7 +10,14 @@ public class User {
     private final String username;
     private String password;
     private final Type type;
-    private int status;
+    private IntegerProperty status;
+
+    public final IntegerProperty statusProperty() {
+        if(status == null)  {
+            status = new SimpleIntegerProperty();
+        }
+        return status;
+    }
 
     private static Type tran(int type) {
         Type ret = switch (type) {
@@ -23,7 +33,7 @@ public class User {
         this.type = type;
         this.username = username;
         this.password = password;
-        this.status = status;
+        setStatus(status);
     }
 
     public User(String username, String password, int type) {
@@ -55,10 +65,10 @@ public class User {
     }
 
     public int getStatus() {
-        return status;
+        return statusProperty().get();
     }
 
     public void setStatus(int status) {
-        this.status = status;
+        statusProperty().set(status);
     }
 }

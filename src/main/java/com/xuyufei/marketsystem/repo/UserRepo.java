@@ -88,17 +88,17 @@ public class UserRepo extends Repo implements Closeable {
         return getIDByUsername(user.getUsername());
     }
 
-    public boolean checkPassword(String username, String password) {
+    public int checkPassword(String username, String password) {
         final String sql = "select * from users where username='" + username + "'";
 //        final String sql = "select * from users";
         if (connection == null) System.out.println("The connection is wrong!");
         try (Statement statement = connection.createStatement();) {
             var resultSet = statement.executeQuery(sql);
-            if (resultSet.next() == false) return false;
+            if (resultSet.next() == false) return 1;
+            if (resultSet.getInt("status") == 0)    return 2;
 
             var pass = resultSet.getString("password");
-
-            return pass.equals(password);
+            return pass.equals(password)? 0: 1;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -115,6 +115,18 @@ public class UserRepo extends Repo implements Closeable {
                         resultSet.getInt("type"), resultSet.getInt("status")));
             }
             return ret;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public boolean setStatusByUsername(String username, int status) {
+        final String sql = "update users set status='" + status + "' where username='" + username + "'";
+        try(Statement statement = connection.createStatement();) {
+            int rowAffected = statement.executeUpdate(sql);
+
+            if(rowAffected > 0) return true;
+            return false;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

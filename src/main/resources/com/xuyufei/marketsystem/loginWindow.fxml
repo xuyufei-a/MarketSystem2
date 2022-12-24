@@ -17,7 +17,7 @@
       <Button id="loginBtn" layoutX="214.0" onAction="#login" layoutY="251.0" mnemonicParsing="false" text="登录" />
       <Button id="exitBtn" layoutX="330.0" onAction="#exit" layoutY="251.0" mnemonicParsing="false" text="退出" />
       <PasswordField fx:id="passwordInput" layoutX="233.0" layoutY="183.0" />
-      <Label fx:id="wrongInputPrompt" layoutX="233.0" layoutY="218.0" prefHeight="18.0" prefWidth="151.0" text="用户不存在或密码不正确" visible="false" />
+      <Label fx:id="wrongInputPrompt" layoutX="233.0" layoutY="218.0" prefHeight="18.0" prefWidth="151.0" text="" />
       <Label layoutX="223.0" layoutY="303.0" prefHeight="18.0" prefWidth="88.0" text="还没有账号？" />
       <Button fx:id="registerBtn" layoutX="329.0" layoutY="296.0" onAction="#register" mnemonicParsing="false" prefHeight="31.0" prefWidth="54.0" text="注册" />
    </children>

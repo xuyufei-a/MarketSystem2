@@ -31,8 +31,8 @@
                   <TableColumn fx:id="status" prefWidth="79.42857360839844" text="封禁状态" />
               </columns>
             </TableView>
-            <Button id="banBtn" layoutX="22.0" layoutY="23.0" mnemonicParsing="false" text="封禁" />
-            <Button id="unbanBtn" layoutX="77.0" layoutY="23.0" mnemonicParsing="false" text="解封" />
+            <Button id="banBtn" onAction="#ban" layoutX="22.0" layoutY="23.0" mnemonicParsing="false" text="封禁" />
+            <Button id="unbanBtn" onAction="#unban" layoutX="77.0" layoutY="23.0" mnemonicParsing="false" text="解封" />
          </children></AnchorPane>
     </items>
 </SplitPane>

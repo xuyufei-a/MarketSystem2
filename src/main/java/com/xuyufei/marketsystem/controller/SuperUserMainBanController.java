@@ -48,6 +48,31 @@ public class SuperUserMainBanController {
     }
 
     @FXML
+    public void ban() {
+        int index = tableView.getSelectionModel().getSelectedIndex();
+        User user = userList.get(index);
+
+        if(user.getType() == User.Type.SU.ordinal()) {
+            System.out.println("不能封禁自己");
+            return;
+        }
+        user.setStatus(0);
+
+        UserRepo userRepo = new UserRepo();
+        userRepo.setStatusByUsername(user.getUsername(), 0);
+    }
+
+    @FXML
+    public void unban() {
+        int index = tableView.getSelectionModel().getSelectedIndex();
+        User user = userList.get(index);
+        user.setStatus(1);
+
+        UserRepo userRepo = new UserRepo();
+        userRepo.setStatusByUsername(user.getUsername(), 1);
+    }
+
+    @FXML
     public void exit() {
 
         stage.close();

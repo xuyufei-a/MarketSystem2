@@ -20,4 +20,9 @@ public class CommonUserMainController {
     public void exit() {
         stage.close();
     }
+
+    @FXML
+    public void commodityMode() {
+        main.openCommonUserCommoditiesWindow();
+    }
 }

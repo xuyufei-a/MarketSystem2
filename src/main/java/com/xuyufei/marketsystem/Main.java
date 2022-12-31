@@ -153,6 +153,22 @@ public class Main extends Application {
         }
     }
 
+    public void openCommonUserCommoditiesWindow() {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    Main.class.getResource("commonUserCommodities.fxml"));
+            SplitPane root = (SplitPane) loader.load();
+            CommonUserCommoditiesController controller = loader.getController();
+            controller.init(primaryStage, this, user);
+
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.setTitle("Market System--common user--commodities");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public void openCommodityModifyWindow(Commodity commodity) {
         try {
             FXMLLoader loader = new FXMLLoader(
@@ -187,6 +203,46 @@ public class Main extends Application {
             Scene scene = new Scene(root);
             secondStage.setScene(scene);
             secondStage.setTitle("Add");
+            secondStage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void openCommodityDisplayWindow(Commodity commodity) {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    Main.class.getResource("commodityDisplayWindow.fxml"));
+            AnchorPane root = (AnchorPane) loader.load();
+            CommodityDisplayController controller = loader.getController();
+
+            Stage secondStage = new Stage();
+            secondStage.initModality(Modality.APPLICATION_MODAL);
+            controller.init(this, secondStage, commodity);
+
+            Scene scene = new Scene(root);
+            secondStage.setScene(scene);
+            secondStage.setTitle("Display");
+            secondStage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void openRegisterWindow() {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    Main.class.getResource("registerWindow.fxml"));
+            AnchorPane root = (AnchorPane) loader.load();
+            RegisterWindowController controller = loader.getController();
+
+            Stage secondStage = new Stage();
+            secondStage.initModality(Modality.APPLICATION_MODAL);
+            controller.setMain(this, secondStage);
+
+            Scene scene = new Scene(root);
+            secondStage.setScene(scene);
+            secondStage.setTitle("register");
             secondStage.show();
         } catch (IOException e) {
             throw new RuntimeException(e);

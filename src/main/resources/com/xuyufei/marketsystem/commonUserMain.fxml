@@ -10,14 +10,9 @@
     <items>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
             <children>
-                <Button fx:id="listBtn" layoutX="6.0" layoutY="59.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="119.0" text="商品大全" />
+                <Button fx:id="listBtn" layoutX="6.0" layoutY="59.0" mnemonicParsing="false" onAction="#commodityMode" prefHeight="29.0" prefWidth="119.0" text="商品大全" />
                 <Button fx:id="ordersBtn" disable="true" layoutX="6.0" layoutY="101.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="119.0" text="订单" />
                 <Button fx:id="meBtn" disable="true" layoutX="6.0" layoutY="144.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="119.0" text="个人中心" />
-                <Label fx:id="nameLabel" layoutX="6.0" layoutY="14.0" prefHeight="29.0" prefWidth="119.0" text="name" textAlignment="CENTER">
-                    <font>
-                        <Font size="20.0" />
-                    </font>
-                </Label>
                 <Button fx:id="exitBtn" layoutX="6.0" layoutY="345.0" mnemonicParsing="false" onAction="#exit" prefHeight="29.0" prefWidth="119.0" text="退出" />
             </children></AnchorPane>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">

@@ -24,9 +24,7 @@ public class CommodityDisplayController {
         this.main = main;
         this.stage = stage;
         this.commodity = commodity;
-    }
 
-    public void initialize() {
         String name = commodity.getName();
         String price = "" + commodity.getPrice();
         String owner = commodity.getOwner();

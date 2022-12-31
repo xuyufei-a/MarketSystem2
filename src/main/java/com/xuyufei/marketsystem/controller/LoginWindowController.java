@@ -51,6 +51,6 @@ public class LoginWindowController {
 
     @FXML
     public void register() {
-//        main.openRegisterWindow();
+        main.openRegisterWindow();
     }
 }

@@ -34,9 +34,9 @@ public class CommodityRepo extends Repo implements Closeable {
 
     public boolean insertEntity(Commodity com) {
         try(Statement statement = connection.createStatement();) {
-            String sql = "insert into commodity(name, imagePath, text, price, owner)" +
+            String sql = "insert into commodity(name, imagePath, text, price, owner, status)" +
                     " values('" + com.getName() + "','" + com.getImagePath() + "','" +
-                    com.getText() + "','" + com.getPrice() + "','" + com.getOwner() + "')";
+                    com.getText() + "','" + com.getPrice() + "','" + com.getOwner() + "','true')";
             int rowAffected = statement.executeUpdate(sql);
             if(rowAffected > 0) return true;
             return false;
@@ -129,9 +129,9 @@ public class CommodityRepo extends Repo implements Closeable {
         }
     }
 
-    public List<Commodity> getAllCommodities() {
+    public List<Commodity> getAllAvailableCommodities() {
         try(Statement statement = connection.createStatement();) {
-            String sql = "select * from commodity";
+            String sql = "select * from commodity where status='true'";
             var resultSet = statement.executeQuery(sql);
 
             List<Commodity> ret = new ArrayList<>();

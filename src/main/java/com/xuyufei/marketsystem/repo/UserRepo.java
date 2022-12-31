@@ -37,9 +37,10 @@ public class UserRepo extends Repo implements Closeable {
         var username = user.getUsername();
         var password = user.getPassword();
         var type = user.getType();
+        var status = user.getStatus();
 
-        final String sql = "insert into users(username, password, type) " +
-                "values(" + username + "," + password + "," + type + ")";
+        final String sql = "insert into users(username, password, type, status) " +
+                "values('" + username + "','" + password + "','" + type + "','" + status + "')";
 
         try(Statement statement = connection.createStatement();) {
             int rowAffected = statement.executeUpdate(sql);
@@ -127,6 +128,17 @@ public class UserRepo extends Repo implements Closeable {
 
             if(rowAffected > 0) return true;
             return false;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public boolean contain(String name) {
+        String sql = "select * from users where username='" + name + "'";
+        try(Statement statement = connection.createStatement();) {
+            var rs = statement.executeQuery(sql);
+            if(rs.next())   return true;
+            return  false;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

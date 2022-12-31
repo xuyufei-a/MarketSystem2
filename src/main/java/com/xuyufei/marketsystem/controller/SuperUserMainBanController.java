@@ -44,7 +44,7 @@ public class SuperUserMainBanController {
 
         setTableData();
         tableView.setItems(userList);
-        tableView.getSelectionModel().select(0);
+//        tableView.getSelectionModel().select(0);
     }
 
     @FXML

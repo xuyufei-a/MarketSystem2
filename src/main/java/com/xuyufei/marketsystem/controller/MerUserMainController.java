@@ -17,6 +17,11 @@ public class MerUserMainController {
     }
 
     @FXML
+    public void goodsMode() {
+        main.openMerGoodsWindow();
+    }
+
+    @FXML
     public void exit() {
         stage.close();
     }

@@ -1,16 +1,20 @@
 package com.xuyufei.marketsystem;
 
 import com.xuyufei.marketsystem.controller.*;
+import com.xuyufei.marketsystem.model.Commodity;
 import com.xuyufei.marketsystem.model.User;
 import com.xuyufei.marketsystem.repo.UserRepo;
 import javafx.application.Application;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.SplitPane;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.regex.Pattern;
 
 public class Main extends Application {
     private Stage primaryStage;
@@ -131,6 +135,67 @@ public class Main extends Application {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void openMerGoodsWindow() {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    Main.class.getResource("merUserMain-myGoods.fxml"));
+            SplitPane root = (SplitPane) loader.load();
+            MerUserMainGoodsController controller = loader.getController();
+            controller.init(primaryStage, this, user);
+
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.setTitle("Market System--merchant user--goods mode");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void openCommodityModifyWindow(Commodity commodity) {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    Main.class.getResource("commodityModifyWindow.fxml"));
+            AnchorPane root = (AnchorPane) loader.load();
+            CommodityModifyController controller = loader.getController();
+
+            Stage secondStage = new Stage();
+            secondStage.initModality(Modality.APPLICATION_MODAL);
+            controller.init(this, secondStage, commodity);
+
+            Scene scene = new Scene(root);
+            secondStage.setScene(scene);
+            secondStage.setTitle("Modify");
+            secondStage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void openCommodityAddWindow(ObservableList<Commodity> goodslist, String owner) {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    Main.class.getResource("commodityAddWindow.fxml"));
+            AnchorPane root = (AnchorPane) loader.load();
+            CommodityAddController controller = loader.getController();
+
+            Stage secondStage = new Stage();
+            secondStage.initModality(Modality.APPLICATION_MODAL);
+            controller.init(this, secondStage, goodslist, owner);
+
+            Scene scene = new Scene(root);
+            secondStage.setScene(scene);
+            secondStage.setTitle("Add");
+            secondStage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static final Pattern NUMBER_PATTERN = Pattern.compile("-?\\d+(\\.\\d+)?");
+    public static boolean isNumeric(String str) {
+        return str != null && NUMBER_PATTERN.matcher(str).matches();
     }
 
     public static void main(String[] args) {

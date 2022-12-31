@@ -1,44 +1,70 @@
 package com.xuyufei.marketsystem.model;
 
+import javafx.beans.property.*;
 import javafx.scene.image.Image;
 
 public class Commodity {
-    private final int id;
-    private String name;
+    private int id;
+    private StringProperty name;
     private Image image;
     private String imagePath;
     private String text;
-    private int price;
-    private int owner;
+    private IntegerProperty price;
+    private String owner;
     private Discount discount;
 
-    private boolean status;
+    private BooleanProperty status;
 
-    public Commodity(int id, String name, Image image, String text, int price, int owner) {
-        this.id = id;
-        this.name = name;
-        this.image = image;
-        this.text = text;
-        this.price = price;
-        this.owner = owner;
+    public final StringProperty nameProperty() {
+        if(name == null)    {
+            name = new SimpleStringProperty();
+        }
+        return name;
     }
 
-    public Commodity(int id, String name, String imagePath, String text, int price, int owner) {
+    public final IntegerProperty priceProperty() {
+        if(price == null) {
+            price = new SimpleIntegerProperty();
+        }
+        return price;
+    }
+
+    public final BooleanProperty statusProperty() {
+        if(status == null) {
+            status = new SimpleBooleanProperty();
+        }
+        return status;
+    }
+
+    public Commodity(int id, String name, String text, int price, String owner, boolean status) {
         this.id = id;
-        this.name = name;
-        this.image = new Image(imagePath);
+        setName(name);
+        this.text = text;
+        setPrice(price);
+        this.owner = owner;
+        setStatus(status);
+    }
+
+    public Commodity(int id, String name, String imagePath, String text, int price, String owner, boolean status) {
+        this(id, name, text, price, owner, status);
         this.imagePath = imagePath;
-        this.text = text;
-        this.price = price;
-        this.owner = owner;
     }
 
-    public Commodity(int id, String name, int price, int owner) {
-        this(id, name, (Image) null, null, price, owner);
+    public Commodity(int id, String name, Image image, String text, int price, String owner, boolean status) {
+        this(id, name, text, price, owner, status);
+        this.image = image;
+    }
+
+    public Commodity(int id, String name, int price, String owner, boolean status) {
+        this(id, name, (Image) null, null, price, owner, status);
     }
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getImagePath() {
@@ -49,12 +75,12 @@ public class Commodity {
         this.imagePath = imagePath;
     }
 
-    public boolean isStatus() {
-        return status;
+    public boolean getStatus() {
+        return statusProperty().get();
     }
 
-    private void setStatus(boolean status) {
-        this.status = status;
+    public void setStatus(boolean status) {
+        statusProperty().set(status);
     }
 
     public Discount getDiscount() {
@@ -70,15 +96,15 @@ public class Commodity {
     }
 
     public boolean isAvailable() {
-        return status;
+        return getStatus();
     }
 
     public String getName() {
-        return name;
+        return nameProperty().get();
     }
 
     public void setName(String name) {
-        this.name = name;
+        nameProperty().set(name);
     }
 
     public String getText() {
@@ -90,19 +116,20 @@ public class Commodity {
     }
 
     public int getPrice() {
-        if(discount == null) return price;
-        return discount.discount(price);
+        int p = priceProperty().get();
+        if(discount == null) return p;
+        return discount.discount(p);
     }
 
     public void setPrice(int price) {
-        this.price = price;
+        priceProperty().set(price);
     }
 
-    public int getOwner() {
+    public String getOwner() {
         return owner;
     }
 
-    public void setOwner(int owner) {
+public void setOwner(String owner) {
         this.owner = owner;
     }
 

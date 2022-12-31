@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.xuyufei.marketsystem.controller.CommodityDisplayController">
+   <children>
+      <Label layoutX="150.0" layoutY="127.0" prefHeight="27.0" prefWidth="70.0" text="商品名称">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="150.0" layoutY="164.0" prefHeight="27.0" prefWidth="70.0" text="商品价格">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="150.0" layoutY="204.0" prefHeight="27.0" prefWidth="70.0" text="商家">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="150.0" layoutY="245.0" prefHeight="27.0" prefWidth="70.0" text="商品介绍">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="nameLabel" layoutX="240.0" layoutY="127.0" prefHeight="27.0" prefWidth="291.0" text="nameLabel">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="priceLabel" layoutX="240.0" layoutY="164.0" prefHeight="27.0" prefWidth="291.0" text="priceLabel">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="ownerLabel" layoutX="240.0" layoutY="204.0" prefHeight="27.0" prefWidth="291.0" text="ownerLabel">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="textLabel" layoutX="240.0" layoutY="245.0" prefHeight="27.0" prefWidth="291.0" text="textLabel">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

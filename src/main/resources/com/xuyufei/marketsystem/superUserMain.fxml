@@ -6,21 +6,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.22394837476099425" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-           prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19"
-           fx:controller="com.xuyufei.marketsystem.controller.SuperUserMainController">
+<SplitPane dividerPositions="0.22394837476099425" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.xuyufei.marketsystem.controller.SuperUserMainController">
     <items>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" >
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
             <children>
-                <Button fx:id="banBtn" onAction="#banMode" layoutX="6.0" layoutY="59.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="119.0" text="封禁/解封" />
-                <Button fx:id="takeDownBtn" onAction="#takeDownMode" layoutX="6.0" layoutY="101.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="119.0" text="强制下架" />
-                <Button fx:id="discountBtn" onAction="#discountMode" layoutX="6.0" layoutY="144.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="119.0" text="全平台折扣" />
-                <Label fx:id="nameLabel" layoutX="6.0" layoutY="14.0" prefHeight="29.0" prefWidth="119.0" textAlignment="CENTER" text="name">
+                <Button fx:id="banBtn" layoutX="6.0" layoutY="59.0" mnemonicParsing="false" onAction="#banMode" prefHeight="29.0" prefWidth="119.0" text="封禁/解封" />
+                <Button fx:id="takeDownBtn" layoutX="6.0" layoutY="101.0" mnemonicParsing="false" onAction="#takeDownMode" prefHeight="29.0" prefWidth="119.0" text="强制下架" />
+                <Button fx:id="discountBtn" disable="true" layoutX="6.0" layoutY="144.0" mnemonicParsing="false" onAction="#discountMode" prefHeight="29.0" prefWidth="119.0" text="全平台折扣" />
+                <Label fx:id="nameLabel" layoutX="6.0" layoutY="14.0" prefHeight="29.0" prefWidth="119.0" text="name" textAlignment="CENTER">
                     <font>
                         <Font size="20.0" />
                     </font>
                 </Label>
-                <Button fx:id="exitBtn" onAction="#exit" layoutX="6.0" layoutY="345.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="119.0" text="退出" />
+                <Button fx:id="exitBtn" layoutX="6.0" layoutY="345.0" mnemonicParsing="false" onAction="#exit" prefHeight="29.0" prefWidth="119.0" text="退出" />
             </children></AnchorPane>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
             <children>

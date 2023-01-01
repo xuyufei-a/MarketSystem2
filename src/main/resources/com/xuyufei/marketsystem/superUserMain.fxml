@@ -11,8 +11,6 @@
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
             <children>
                 <Button fx:id="banBtn" layoutX="6.0" layoutY="59.0" mnemonicParsing="false" onAction="#banMode" prefHeight="29.0" prefWidth="119.0" text="封禁/解封" />
-                <Button fx:id="takeDownBtn" disable="true" layoutX="6.0" layoutY="101.0" mnemonicParsing="false" onAction="#takeDownMode" prefHeight="29.0" prefWidth="119.0" text="强制下架" />
-                <Button fx:id="discountBtn" disable="true" layoutX="6.0" layoutY="144.0" mnemonicParsing="false" onAction="#discountMode" prefHeight="29.0" prefWidth="119.0" text="全平台折扣" />
                 <Button fx:id="exitBtn" layoutX="6.0" layoutY="345.0" mnemonicParsing="false" onAction="#exit" prefHeight="29.0" prefWidth="119.0" text="退出" />
             </children></AnchorPane>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">

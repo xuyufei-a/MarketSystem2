@@ -1,6 +1,17 @@
 package com.xuyufei.marketsystem.repo;
 
-public class Repo {
+import java.io.IOException;
+import java.nio.file.Path;
 
-    private static String URL = "jdbc:sqlite:D:/Documents/java_project/MarketSystem/dbs/repo.db";
+public class Repo {
+    protected static String URL;
+    Repo() {
+        try {
+            if (URL == null) {
+                URL = "jdbc:sqlite:" + Path.of(".").toRealPath() + "/repo.db";
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
